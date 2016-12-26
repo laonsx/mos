@@ -1,4 +1,4 @@
-package logs
+package loger
 
 import (
 	"log"
@@ -106,4 +106,8 @@ func InitLogger(Path string, Name string, MinLevel int, Output bool) {
 	terminalOutput=Output
 	fileName=Name
 	std=log.New(os.Stderr, "", log.Ltime|log.Lmicroseconds|log.Lshortfile)
+}
+
+func init() {
+	InitLogger("./","app.log",1,true)
 }

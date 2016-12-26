@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
-
+import (
+	"fmt"
+	_ "config"
+)
 func main() {
 	fmt.Println("hello world")
+
 }
