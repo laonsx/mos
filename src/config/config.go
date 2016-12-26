@@ -24,7 +24,7 @@ type Config struct {
 }
 
 var Global_Config Config
-
+//配置文件路径
 const CONFIGPATH  ="./config.json"
 
 //载入配置文件
@@ -59,7 +59,6 @@ func createDefaultConfigFile() {
 	if err!=nil{
 		loger.Fatal("Create default config file fail. Error: %v", err.Error())
 	}
-	//! 设置默认配置参数
 	c:=Config{
 		Database_IP:      "127.0.0.1",
 		Database_Port:    27017,
@@ -68,7 +67,6 @@ func createDefaultConfigFile() {
 		LoginServerID:    1,
 		LoginServerLimit: 5000,
 	}
-	//! 将配置解析为json格式
 	j,err:=json.Marshal(c)
 	if err!=nil{
 		loger.Error("Marshal json fail. Error: %v", err.Error())
