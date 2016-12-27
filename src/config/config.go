@@ -24,6 +24,7 @@ type Config struct {
 }
 
 var Global_Config Config
+
 //配置文件路径
 const CONFIGPATH  ="./config/config.json"
 
