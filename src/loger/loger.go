@@ -109,5 +109,5 @@ func InitLogger(Path string, Name string, MinLevel int, Output bool) {
 }
 
 func init() {
-	InitLogger("./","app.log",1,true)
+	InitLogger("./.logs/","app.log",1,true)
 }
