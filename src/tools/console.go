@@ -7,7 +7,6 @@ import (
 	"runtime"
 	"strconv"
 	"strings"
-	"loger"
 )
 
 type CommandHandler func(args []string) bool
@@ -35,7 +34,6 @@ func consoleroutine() {
 			cmdhandler(Args)
 			continue
 		}
-		loger.Info(string(command),"..。。..",Args)
 		switch string(Args[0]) {
 		case "cpus":
 			fmt.Println(runtime.NumCPU(), " cpus and ", runtime.GOMAXPROCS(0), " in use")
