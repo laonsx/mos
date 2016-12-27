@@ -80,7 +80,7 @@ func Fatal(format string, v ...interface{}) { //! 致命错误,使用会造成�
 	os.Exit(1)
 }
 
-//跨天生成新文件
+// 跨天生成新文件
 func changDay() {
 	now:=time.Now()
 	nowDay:=now.Day()
