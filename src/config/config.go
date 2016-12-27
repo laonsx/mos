@@ -25,7 +25,7 @@ type Config struct {
 
 var Global_Config Config
 //配置文件路径
-const CONFIGPATH  ="./config.json"
+const CONFIGPATH  ="./config/config.json"
 
 //载入配置文件
 func init() {
