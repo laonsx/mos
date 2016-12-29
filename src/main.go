@@ -5,6 +5,9 @@ import (
 	"loger"
 	"net/http"
 	"routers"
+	"tools"
+	"db"
+	"config"
 )
 
 /*type MyMux struct {
@@ -72,6 +75,21 @@ func helloServer(w http.ResponseWriter,r *http.Request) {
 func main() {
 	//mux := &MyMux{}
 	//http.ListenAndServe(":9090", mux)
-	loger.Info("start server on :9090")
-	http.ListenAndServe(":9090",routers.Routers)
+	//db.Insert()
+	conf:=config.Global_Config
+	dbs,err:=db.New(conf.Database_Root,conf.Database_PW,conf.Database_IP,conf.Database_Port,conf.Database_Tb)
+	if err==nil{
+		i,err:=dbs.Table("userinfo").Key("username","created","age").Value("haha","2013-12-09","30" ).Insert()
+		if err==nil{
+			loger.Info("insert success ",i)
+		}
+	}
+	dbs.Table("userinfo").Where("uid=59").Delete()
+	dbs.Table("userinfo").Where("uid=60").Key("username","departname","age").Value("zys","zhongguo","8").Update()
+	data:=dbs.Table("userinfo").Where("").OrderBy("age desc").FindAll()
+	db.Print(data)
+	loger.Info("start server on :8080")
+	tools.StartConsole()
+	http.ListenAndServe("127.0.0.1:8080",routers.Routers)
+
 }
