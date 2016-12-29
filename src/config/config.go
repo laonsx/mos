@@ -7,11 +7,13 @@ import (
 	"io/ioutil"
 )
 type Config struct {
+	Database_Root string `json:"dbroot"`//! 数据库账户
+	Database_PW string `json:"dbpw"`//! 数据库密码
 	Database_IP   string `json:"dbip"`   //! 数据库IP
-	Database_Port int    `json:"dbport"` //! 数据库端口
-
+	Database_Port string    `json:"dbport"` //! 数据库端口
+	Database_Tb string `json:"dbtable"`//! 数据库
 	LoginServer_IP   string `json:"loginserver_ip"`    //! 登录服务器IP
-	LoginServer_Port int    `json:"loginserver_port"`  //! 登录服务器端口
+	LoginServer_Port string    `json:"loginserver_port"`  //! 登录服务器端口
 	LoginServerID    int    `json:"loginserver_id"`    //! 登录服务器ID
 	LoginServerLimit int    `json:"loginserver_limit"` //! 登陆服务器人数限制
 
@@ -62,9 +64,9 @@ func createDefaultConfigFile() {
 	}
 	c:=Config{
 		Database_IP:      "127.0.0.1",
-		Database_Port:    27017,
+		Database_Port:    "9999",
 		LoginServer_IP:   "127.0.0.1",
-		LoginServer_Port: 9999,
+		LoginServer_Port: "9999",
 		LoginServerID:    1,
 		LoginServerLimit: 5000,
 	}
