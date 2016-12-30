@@ -7,22 +7,22 @@ import (
 	"io/ioutil"
 )
 type Config struct {
-	Database_Root string `json:"dbroot"`//! 数据库账户
-	Database_PW string `json:"dbpw"`//! 数据库密码
-	Database_IP   string `json:"dbip"`   //! 数据库IP
-	Database_Port string    `json:"dbport"` //! 数据库端口
-	Database_Tb string `json:"dbtable"`//! 数据库
-	LoginServer_IP   string `json:"loginserver_ip"`    //! 登录服务器IP
-	LoginServer_Port string    `json:"loginserver_port"`  //! 登录服务器端口
-	LoginServerID    int    `json:"loginserver_id"`    //! 登录服务器ID
-	LoginServerLimit int    `json:"loginserver_limit"` //! 登陆服务器人数限制
+	Database_Root string `json:"dbroot"`// 数据库账户
+	Database_PW string `json:"dbpw"`// 数据库密码
+	Database_IP   string `json:"dbip"`   // 数据库IP
+	Database_Port string    `json:"dbport"` // 数据库端口
+	Database_Tb string `json:"dbtable"`// 数据库
+	LoginServer_IP   string `json:"loginserver_ip"`    // 登录服务器IP
+	LoginServer_Port string    `json:"loginserver_port"`  // 登录服务器端口
+	LoginServerID    int    `json:"loginserver_id"`    // 登录服务器ID
+	LoginServerLimit int    `json:"loginserver_limit"` // 登陆服务器人数限制
 
-	GameServer_IP   string `json:"gameserver_ip"`    //! 游戏服务器IP
-	GameServer_Port int    `json:"gameserver_port"`  //! 游戏服务器端口
-	GameServerID    int    `json:"gameserver_id"`    //! 游戏服务器ID
-	GameServerLimit int    `json:"gameserver_limit"` //! 游戏服务器人数限制
-	GameServerName  string `json:"gameserver_name"`  //! 游戏服务器名字
-	GameServer_New bool `json:"gameserver_isnew"` //! 是否为新服
+	GameServer_IP   string `json:"gameserver_ip"`    // 游戏服务器IP
+	GameServer_Port int    `json:"gameserver_port"`  // 游戏服务器端口
+	GameServerID    int    `json:"gameserver_id"`    // 游戏服务器ID
+	GameServerLimit int    `json:"gameserver_limit"` // 游戏服务器人数限制
+	GameServerName  string `json:"gameserver_name"`  // 游戏服务器名字
+	GameServer_New bool `json:"gameserver_isnew"` // 是否为新服
 }
 
 var Global_Config Config
@@ -38,7 +38,7 @@ func init() {
 			loger.Fatal("Open config file fail. Error: %v", err.Error())
 			return
 		}
-		//! 文件不存在则创建默认配置文件
+		// 文件不存在则创建默认配置文件
 		createDefaultConfigFile()
 		f, _ = os.Open(CONFIGPATH)
 	}
@@ -56,7 +56,7 @@ func init() {
 	loger.Debug("Load config success: \r\n %s", string(data))
 }
 
-//! 创建默认配置文件
+// 创建默认配置文件
 func createDefaultConfigFile() {
 	f,err:=os.Create(CONFIGPATH)
 	if err!=nil{
