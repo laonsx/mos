@@ -1,6 +1,6 @@
 //java对应的封包过程
 
-    private static byte[] packet(String message) {
+    public static byte[] packet(String message) {
         byte[] re;
     	try {
     		byte[] s=message.getBytes("utf-8");
