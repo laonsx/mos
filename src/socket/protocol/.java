@@ -5,7 +5,7 @@
     	try {
     		byte[] s=message.getBytes("utf-8");
     		System.out.println(message.length());
-    		byte[] a=intToByteArray1(s.length);
+    		byte[] a=intToByteArray(s.length);
     		byte[] b="Headers".getBytes("utf-8");
     		re=new byte[s.length+a.length+b.length];
     		System.arraycopy(b, 0, re, 0, b.length);
@@ -18,7 +18,7 @@
     	}
     }
 
-    public static byte[] intToByteArray1(int i) {
+    public static byte[] intToByteArray(int i) {
         byte[] result = new byte[4];
         result[0] = (byte)((i >> 24) & 0xFF);
         result[1] = (byte)((i >> 16) & 0xFF);
