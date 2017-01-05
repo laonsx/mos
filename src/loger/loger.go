@@ -10,11 +10,11 @@ import (
 
 const (
 	_=iota
-	LOGDEBUG//! 调试
-	LOGINFO//! 信息
-	LOGWARN//! 警告
-	LOGERROR//! 错误
-	LOGFATAL//! 致命错误
+	LOGDEBUG// 调试
+	LOGINFO// 信息
+	LOGWARN// 警告
+	LOGERROR// 错误
+	LOGFATAL// 致命错误
 )
 
 var loger *log.Logger //日志组件
@@ -34,7 +34,7 @@ func Output(logType int,format string,v ...interface{}) {
 	outputLock.Lock()
 	defer outputLock.Unlock()
 	prefixStr:="unknow"
-	switch logType { //! 根据消息类型自由搭配颜色
+	switch logType { // 根据消息类型自由搭配颜色
 	case LOGDEBUG:
 		prefixStr = "[Debug]"
 	case LOGINFO:
@@ -55,27 +55,27 @@ func Output(logType int,format string,v ...interface{}) {
 	}
 }
 
-func Print(format string, v ...interface{}) { //! Print
+func Print(format string, v ...interface{}) { // Print
 	fmt.Printf(format, v...)
 }
 
-func Debug(format string, v ...interface{}) { //! 调试
+func Debug(format string, v ...interface{}) { // 调试
 	Output(LOGDEBUG, format, v...)
 }
 
-func Info(format string, v ...interface{}) { //! 信息
+func Info(format string, v ...interface{}) { // 信息
 	Output(LOGINFO, format, v...)
 }
 
-func Warn(format string, v ...interface{}) { //! 警告
+func Warn(format string, v ...interface{}) { // 警告
 	Output(LOGWARN, format, v...)
 }
 
-func Error(format string, v ...interface{}) { //! 错误
+func Error(format string, v ...interface{}) { // 错误
 	Output(LOGERROR, format, v...)
 }
 
-func Fatal(format string, v ...interface{}) { //! 致命错误,使用会造成服务器退出,慎用!!
+func Fatal(format string, v ...interface{}) { // 致命错误,使用会造成服务器退出,慎用!!
 	Output(LOGFATAL, format, v...)
 	os.Exit(1)
 }
@@ -98,9 +98,9 @@ func changDay() {
 	loger=log.New(logfile,"",log.Ltime|log.Lmicroseconds|log.Lshortfile)
 }
 
-//！ 创建日志管理器  日志路径  日志文件名 日志警示最小等级  终端是否同步输出
+// 创建日志管理器  日志路径  日志文件名 日志警示最小等级  终端是否同步输出
 func InitLogger(Path string, Name string, MinLevel int, Output bool) {
-	os.Mkdir(Path,7777)//! 创建log目录，如果存在则忽略
+	os.Mkdir(Path,7777)// 创建log目录，如果存在则忽略
 	logPath=Path
 	logMinLevel=MinLevel
 	terminalOutput=Output
