@@ -107,6 +107,7 @@ public class Protocol {
 			}
 			if (socket.isClosed()){
 				System.out.println("连接断开了");
+				return;
 			}
 			if(bytes.length<HEADERLENGTH){
 				byte[] head=new byte[HEADERLENGTH-bytes.length];
