@@ -1,4 +1,0 @@
-# mos
-thanks
-
-haha
